@@ -1,0 +1,33 @@
+<h1>Listing sales</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Closedate</th>
+      <th>Company</th>
+      <th>Amount</th>
+      <th>Sfdcae</th>
+      <th>Platformrep</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sales.each do |sale| %>
+      <tr>
+        <td><%= sale.closedate %></td>
+        <td><%= sale.company %></td>
+        <td><%= sale.amount %></td>
+        <td><%= sale.sfdcae %></td>
+        <td><%= sale.platformrep %></td>
+        <td><%= link_to 'Show', sale %></td>
+        <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+        <td><%= link_to 'Destroy', sale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sale', new_sale_path %>
